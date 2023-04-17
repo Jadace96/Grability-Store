@@ -1,0 +1,29 @@
+{
+  "preset": "react-native",
+  "setupFilesAfterEnv": [
+    "@testing-library/jest-native/extend-expect"
+  ],
+  "testEnvironment": "node",
+  "moduleFileExtensions": [
+    "js",
+    "jsx",
+    "ts",
+    "tsx"
+  ],
+  "roots": [
+    "<rootDir>/src"
+  ],
+  "collectCoverage": true,
+  "coverageReporters": [
+    "lcov"
+  ],
+  "coverageDirectory": "test-coverage",
+  "coverageThreshold": {
+    "global": {
+      "lines": 0,
+      "branches": 0,
+      "functions": 0,
+      "statements": 0
+    }
+  }
+}
