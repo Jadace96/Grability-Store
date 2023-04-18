@@ -1,3 +1,3 @@
 export type TRootStackParamList = {
-  Home: undefined;
+  Store: undefined;
 };
