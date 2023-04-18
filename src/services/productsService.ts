@@ -1,11 +1,11 @@
 // adapters
-import { fetcher } from "../adapters/fetcherAdapter";
+import { fetcher } from "@/adapters/fetcherAdapter";
 
 // constants
-import { ENDPOINTS } from "../constants/apiConstants";
+import { ENDPOINTS } from "@/constants";
 
 // types
-import { IProductsResponse } from "../types";
+import { IProducts, IApiErrorResponse } from "@/types";
 
-export const getProducts = async () =>
-  await fetcher.get<IProductsResponse>(ENDPOINTS.PRODUCTS);
+export const getProductsService = () =>
+  fetcher.get<IProducts | IApiErrorResponse>(ENDPOINTS.PRODUCTS);

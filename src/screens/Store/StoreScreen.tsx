@@ -1,21 +1,29 @@
 // vendors
-import { View, Text, TouchableHighlight } from "react-native";
+import { View, Text, TouchableHighlight, FlatList } from "react-native";
 
 // components
-import { ProductCard } from "../../components";
-import { getProducts } from "../../services/productsService";
+import { ProductCard } from "@/components";
+
+// hooks
+import { useProducts } from "@/hooks/useProductsHook";
 
 export const StoreScreen = () => {
+  const { productsState } = useProducts();
+
   return (
     <View>
-      <ProductCard />
-      <TouchableHighlight
-        activeOpacity={0.6}
-        underlayColor="#DDDDDD"
-        onPress={getProducts}
-      >
-        <Text>Get Products</Text>
-      </TouchableHighlight>
+      <FlatList
+        windowSize={1}
+        scrollEnabled={productsState?.products?.length > 0}
+        data={productsState?.products}
+        removeClippedSubviews
+        // style={styles.flatlist}
+        keyExtractor={({ id }) => id.toString()}
+        renderItem={({ item }) => <ProductCard product={item} />}
+        initialNumToRender={20}
+        ListEmptyComponent={<Text>Nothing to show!</Text>}
+        ListFooterComponent={<Text>Footer</Text>}
+      />
     </View>
   );
 };

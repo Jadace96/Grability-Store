@@ -1,4 +1,6 @@
 export interface IApiErrorResponse {
-  status: number;
-  errorMessage: string;
+  error: {
+    code: number;
+    message: string;
+  };
 }

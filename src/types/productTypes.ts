@@ -1,14 +1,17 @@
 import { IApiErrorResponse } from "./apiTypes";
 
-export interface IProductsResponse {
+export interface IProducts {
   products: IProduct[];
 }
 
 export interface IProduct {
-  nombre: string;
-  unidad_precio: number;
-  cantidad: number;
+  id: number;
   name: string;
-  unit_price: number;
   stock: number;
+  images: string[];
+  unit_price: number;
 }
+
+export interface IProductsApiResponse
+  extends Partial<IProducts>,
+    Partial<IApiErrorResponse> {}
