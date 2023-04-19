@@ -6,7 +6,6 @@ import { ProductCard } from "@/components";
 
 // hooks
 import { useProducts } from "@/hooks";
-import { useState } from "react";
 
 export const StoreScreen = () => {
   const {

@@ -1,4 +1,5 @@
 // vendors
+import { useMemo } from "react";
 import { View } from "react-native";
 import { Text, Button, Card, Icon } from "@rneui/themed";
 
@@ -7,7 +8,6 @@ import { IProduct } from "@/types";
 
 // styles
 import { styles } from "./ProductCardComponentStyles";
-import { useMemo, useState } from "react";
 
 // iterfaces
 interface IProps {
