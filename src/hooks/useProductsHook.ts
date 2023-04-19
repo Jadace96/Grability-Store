@@ -14,14 +14,16 @@ import { cartActions, productsActions } from "@/store";
 import { IApiErrorResponse, IProduct, IProductsApiResponse } from "../types";
 
 interface IProductsState extends Partial<IApiErrorResponse> {
-  isFetching?: boolean;
+  isFetching: boolean;
 }
 
 export const useProducts = () => {
   const dispatch = useAppDispatch();
   const storedProducts = useAppSelector(({ products }) => products.products);
 
-  const [productsState, setProductsState] = useState<IProductsState>();
+  const [productsState, setProductsState] = useState<IProductsState>({
+    isFetching: false,
+  });
 
   const getProducts = useCallback(async () => {
     dispatch(cartActions.reset());
@@ -40,7 +42,6 @@ export const useProducts = () => {
 
   useEffect(() => {
     storedProducts.length === 0 && getProducts();
-    // getProducts();
   }, []);
 
   const addProductToCart = (product: IProduct) => {
