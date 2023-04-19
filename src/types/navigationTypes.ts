@@ -1,9 +1,9 @@
 // vendors
-import { NativeStackNavigationProp } from "@react-navigation/native-stack";
+import { NativeStackScreenProps } from "@react-navigation/native-stack";
 
 export type TRootStackParamList = {
   Store: undefined;
   Cart: undefined;
 };
 
-export type TNavigation = NativeStackNavigationProp<TRootStackParamList>;
+export type TScreenProps = NativeStackScreenProps<TRootStackParamList>;

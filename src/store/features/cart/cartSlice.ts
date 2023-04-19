@@ -42,7 +42,7 @@ export const cartSlice = createSlice({
         };
       }
     },
-    restore: (state) =>
+    reset: (state) =>
       (state = {
         products: {},
         totalItems: 0,

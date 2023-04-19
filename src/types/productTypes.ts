@@ -9,6 +9,7 @@ export interface IProduct {
   name: string;
   stock: number;
   image: string;
+  inCart: number;
   unit_price: number;
 }
 

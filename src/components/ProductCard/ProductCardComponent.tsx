@@ -7,7 +7,7 @@ import { IProduct } from "@/types";
 
 // styles
 import { styles } from "./ProductCardComponentStyles";
-import { useState } from "react";
+import { useMemo, useState } from "react";
 
 // iterfaces
 interface IProps {
@@ -21,7 +21,7 @@ export const ProductCard = ({
   onAddProduct,
   onRemoveProduct,
 }: IProps) => {
-  const [quantity, setQuantity] = useState(0);
+  const quantity = useMemo(() => product.inCart || 0, [product?.inCart]);
 
   return (
     <View style={styles.container}>
@@ -55,10 +55,7 @@ export const ProductCard = ({
         >
           <Button
             disabled={quantity === 0}
-            onPress={() => {
-              onRemoveProduct(product);
-              setQuantity(quantity - 1);
-            }}
+            onPress={() => onRemoveProduct(product)}
             icon={<Icon name="remove" color="#ffffff" />}
             buttonStyle={{
               borderRadius: 5,
@@ -81,10 +78,7 @@ export const ProductCard = ({
             buttonStyle={{ borderRadius: 5 }}
             disabled={product.stock === 0}
             icon={<Icon name="add" color="#ffffff" />}
-            onPress={() => {
-              onAddProduct(product);
-              setQuantity(quantity + 1);
-            }}
+            onPress={() => onAddProduct(product)}
           />
         </View>
       </Card>

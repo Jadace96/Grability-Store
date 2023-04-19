@@ -1,4 +1,5 @@
 // vendors
+import { View } from "react-native";
 import { Badge, Button } from "@rneui/themed";
 import { MaterialCommunityIcons } from "@expo/vector-icons";
 import { useLinkTo, NavigationContainer } from "@react-navigation/native";
@@ -8,13 +9,12 @@ import { createNativeStackNavigator } from "@react-navigation/native-stack";
 import { StoreScreen, CartScreen } from "../screens";
 
 // types
-import { TRootStackParamList } from "../types";
+import { TRootStackParamList, TScreenProps } from "../types";
 import { useAppSelector } from "@/hooks";
-import { View } from "react-native";
 
 const Stack = createNativeStackNavigator<TRootStackParamList>();
 
-const RootNavigator = () => {
+const RootNavigator = ({ navigation }: TScreenProps) => {
   const linkTo = useLinkTo();
   const itemsInCart = useAppSelector(({ cart }) => cart.totalItems);
 
@@ -53,7 +53,7 @@ const RootNavigator = () => {
   );
 };
 
-export function Navigation(props: any) {
+export function Navigation() {
   return (
     <NavigationContainer>
       <RootNavigator />

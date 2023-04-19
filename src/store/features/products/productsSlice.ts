@@ -21,6 +21,16 @@ export const productsSlice = createSlice({
         product.id === payload.id ? payload : product
       );
     },
+    resetProductsInCart: (state) => {
+      state.products = state.products.map((product) => ({
+        ...product,
+        inCart: 0,
+      }));
+    },
+    reset: (state) =>
+      (state = {
+        products: [],
+      }),
   },
 });
 

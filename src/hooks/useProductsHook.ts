@@ -22,16 +22,15 @@ export const useProducts = () => {
   const storedProducts = useAppSelector(({ products }) => products.products);
 
   const [productsState, setProductsState] = useState<IProductsState>();
-  const [products, setProducts] = useState<IProduct[]>(storedProducts || []);
 
   const getProducts = useCallback(async () => {
+    dispatch(cartActions.reset());
     setProductsState({ isFetching: true });
 
     const response = (await getProductsService()) as IProductsApiResponse;
 
     if (response?.products) {
       dispatch(productsActions.add(response.products));
-      setProducts(response.products);
       setProductsState({ isFetching: false });
     }
 
@@ -40,10 +39,36 @@ export const useProducts = () => {
   }, []);
 
   useEffect(() => {
-    // storedProducts.length === 0 && getProducts();
-    dispatch(cartActions.restore())
-    getProducts();
+    storedProducts.length === 0 && getProducts();
+    // getProducts();
   }, []);
 
-  return { getProducts, productsState, products, setProducts };
+  const addProductToCart = (product: IProduct) => {
+    const data = {
+      ...product,
+      stock: product.stock - 1,
+      inCart: product.inCart + 1 || 1,
+    };
+
+    dispatch(cartActions.add(data));
+    dispatch(productsActions.update(data));
+  };
+
+  const removeProductFromCart = (product: IProduct) => {
+    const data = {
+      ...product,
+      stock: product.stock + 1,
+      inCart: product.inCart - 1 || 0,
+    };
+    dispatch(cartActions.remove(product));
+    dispatch(productsActions.update(data));
+  };
+
+  return {
+    getProducts,
+    productsState,
+    addProductToCart,
+    removeProductFromCart,
+    products: storedProducts,
+  };
 };
