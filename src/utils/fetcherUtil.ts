@@ -1,3 +1,4 @@
+// vendors
 import axios, { AxiosError } from "axios";
 
 export const fetcher = axios.create({
@@ -6,12 +7,10 @@ export const fetcher = axios.create({
 
 fetcher.interceptors.response.use(
   (response) => response.data,
-  (error: AxiosError) => {
-    return {
-      error: {
-        message: error.message,
-        code: error.response?.status,
-      },
-    };
-  }
+  (error: AxiosError) => ({
+    error: {
+      message: error.message,
+      code: error.response?.status,
+    },
+  })
 );

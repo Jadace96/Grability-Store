@@ -1,5 +1,5 @@
-// adapters
-import { fetcher } from "@/adapters/fetcherAdapter";
+// utils
+import { fetcher } from "@/utils";
 
 // constants
 import { ENDPOINTS } from "@/constants";

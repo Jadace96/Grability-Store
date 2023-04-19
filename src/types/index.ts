@@ -1,3 +1,4 @@
+export * from "./carTypes";
 export * from "./apiTypes";
 export * from "./productTypes";
 export * from "./navigationTypes";

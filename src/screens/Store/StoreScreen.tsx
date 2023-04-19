@@ -1,11 +1,11 @@
 // vendors
-import { View, Text, TouchableHighlight, FlatList } from "react-native";
+import { View, Text, FlatList } from "react-native";
 
 // components
 import { ProductCard } from "@/components";
 
 // hooks
-import { useProducts } from "@/hooks/useProductsHook";
+import { useProducts } from "@/hooks";
 
 export const StoreScreen = () => {
   const { productsState } = useProducts();

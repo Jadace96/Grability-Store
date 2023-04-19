@@ -2,7 +2,7 @@
 import { StyleSheet } from "react-native";
 
 // constants
-import { device } from "../../constants";
+import { DEVICE } from "@/constants";
 
 export const styles = StyleSheet.create({
   container: {
@@ -13,8 +13,8 @@ export const styles = StyleSheet.create({
 
   card: {
     backgroundColor: "red",
-    width: device.width / 2.2,
-    height: device.height / 3,
+    width: DEVICE.width / 2.2,
+    height: DEVICE.height / 3,
     justifyContent: "center",
   },
 
