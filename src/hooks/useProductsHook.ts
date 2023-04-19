@@ -7,64 +7,43 @@ import { getProductsService } from "@/services/productsService";
 // hooks
 import { useAppDispatch, useAppSelector } from "./useStoreHooks";
 
-// types
-import { IProductsApiResponse, IProduct } from "../types";
-import { productsActions } from "@/store";
+// actions
+import { cartActions, productsActions } from "@/store";
 
-interface IProductsState extends IProductsApiResponse {
+// types
+import { IApiErrorResponse, IProduct, IProductsApiResponse } from "../types";
+
+interface IProductsState extends Partial<IApiErrorResponse> {
   isFetching?: boolean;
-  products: IProduct[];
 }
 
 export const useProducts = () => {
   const dispatch = useAppDispatch();
   const storedProducts = useAppSelector(({ products }) => products.products);
 
-  const [productsState, setProductsState] = useState<IProductsState>({
-    products: storedProducts || [],
-  });
-
-  // const data = {
-  //   subscription: getProducts$().subscribe({
-  //     next: (res: IProductsApiResponse) => {
-  //       if (res?.errorMessage) {
-  //         setProducts(null);
-  //         setProductsError(res.errorMessage);
-  //       }
-  //       if (res?.products) {
-  //         setProductsError(null);
-  //         setProducts(res.products);
-  //       }
-  //     },
-  //     complete: () => {
-  //       setIsFetchingProducts(false);
-  //       data.unsubscribe();
-  //     },
-  //   }),
-  //   unsubscribe: () => {
-  //     data.subscription.unsubscribe();
-  //   },
-  // };
+  const [productsState, setProductsState] = useState<IProductsState>();
+  const [products, setProducts] = useState<IProduct[]>(storedProducts || []);
 
   const getProducts = useCallback(async () => {
-    setProductsState({ isFetching: true, products: [] });
+    setProductsState({ isFetching: true });
 
     const response = (await getProductsService()) as IProductsApiResponse;
 
     if (response?.products) {
       dispatch(productsActions.add(response.products));
-      setProductsState({
-        products: response?.products || [],
-      });
+      setProducts(response.products);
+      setProductsState({ isFetching: false });
     }
 
     response?.error &&
-      setProductsState({ products: [], error: response?.error });
+      setProductsState({ error: response.error, isFetching: false });
   }, []);
 
   useEffect(() => {
+    // storedProducts.length === 0 && getProducts();
+    dispatch(cartActions.restore())
     getProducts();
   }, []);
 
-  return { getProducts, productsState };
+  return { getProducts, productsState, products, setProducts };
 };

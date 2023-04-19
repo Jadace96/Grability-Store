@@ -2,5 +2,11 @@
 import { IProduct } from "./productTypes";
 
 export interface ICarState {
-  products: IProduct[];
+  totalItems: number;
+  totalValue: number;
+  products: {
+    [key: string | number]: {
+      quantityInCart: number;
+    } & IProduct;
+  };
 }

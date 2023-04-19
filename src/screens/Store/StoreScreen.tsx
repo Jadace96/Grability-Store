@@ -5,15 +5,44 @@ import { ScrollView } from "react-native";
 import { ProductCard } from "@/components";
 
 // hooks
-import { useProducts } from "@/hooks";
+import { useAppDispatch, useAppSelector, useProducts } from "@/hooks";
 
-export const StoreScreen = () => {
-  const { productsState } = useProducts();
+// store
+import { cartActions, productsActions } from "@/store";
+
+// types
+import { IProduct, TNavigation } from "@/types";
+
+interface IProps {
+  navigation: TNavigation;
+}
+
+export const StoreScreen = ({ navigation }: IProps) => {
+  const { products } = useProducts();
+  const dispatch = useAppDispatch();
+  const { cart, products: products_ } = useAppSelector((state) => state);
+
+  const onAddProduct = (product: IProduct) => {
+    product.stock--;
+    dispatch(cartActions.add(product));
+    dispatch(productsActions.update(product));
+  };
+
+  const onRemoveProduct = (product: IProduct) => {
+    product.stock++;
+    dispatch(cartActions.remove(product));
+    dispatch(productsActions.update(product));
+  };
 
   return (
     <ScrollView contentContainerStyle={{ paddingBottom: 40 }}>
-      {productsState.products?.map((product) => (
-        <ProductCard key={product.id} product={product} />
+      {products?.map((product) => (
+        <ProductCard
+          key={product.id}
+          product={product}
+          onAddProduct={onAddProduct}
+          onRemoveProduct={onRemoveProduct}
+        />
       ))}
     </ScrollView>
   );

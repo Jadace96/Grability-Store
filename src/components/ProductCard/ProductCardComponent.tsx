@@ -12,9 +12,15 @@ import { useState } from "react";
 // iterfaces
 interface IProps {
   product: IProduct;
+  onAddProduct: (product: IProduct) => void;
+  onRemoveProduct: (product: IProduct) => void;
 }
 
-export const ProductCard = ({ product }: IProps) => {
+export const ProductCard = ({
+  product,
+  onAddProduct,
+  onRemoveProduct,
+}: IProps) => {
   const [quantity, setQuantity] = useState(0);
 
   return (
@@ -50,7 +56,7 @@ export const ProductCard = ({ product }: IProps) => {
           <Button
             disabled={quantity === 0}
             onPress={() => {
-              product.stock = product.stock + 1;
+              onRemoveProduct(product);
               setQuantity(quantity - 1);
             }}
             icon={<Icon name="remove" color="#ffffff" />}
@@ -76,7 +82,7 @@ export const ProductCard = ({ product }: IProps) => {
             disabled={product.stock === 0}
             icon={<Icon name="add" color="#ffffff" />}
             onPress={() => {
-              product.stock = product.stock - 1;
+              onAddProduct(product);
               setQuantity(quantity + 1);
             }}
           />

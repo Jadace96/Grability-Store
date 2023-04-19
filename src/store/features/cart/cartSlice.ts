@@ -5,7 +5,9 @@ import { createSlice, type PayloadAction } from "@reduxjs/toolkit";
 import { ICarState, IProduct } from "@/types";
 
 const initialState: ICarState = {
-  products: [],
+  products: {},
+  totalItems: 0,
+  totalValue: 0,
 };
 
 export const cartSlice = createSlice({
@@ -14,14 +16,38 @@ export const cartSlice = createSlice({
   initialState,
   reducers: {
     add: (state, { payload }: PayloadAction<IProduct>) => {
-      state.products.push(payload);
+      state.totalItems++;
+      state.totalValue += payload.unit_price;
+
+      const productInCart = state.products[payload.id];
+      state.products = {
+        ...state.products,
+        [payload.id]: {
+          ...payload,
+          quantityInCart: productInCart?.quantityInCart + 1 || 1,
+        },
+      };
     },
-    remove: (state, { payload }: PayloadAction<{ productId: number }>) => {
-      const filteredProducts = state.products.filter(
-        (product) => product.id !== payload.productId
-      );
-      state.products = [...filteredProducts];
+    remove: (state, { payload }: PayloadAction<IProduct>) => {
+      state.totalItems--;
+      state.totalValue -= payload.unit_price;
+
+      const productInCart = state.products[payload.id];
+      if (productInCart?.quantityInCart === 1) {
+        delete state.products[payload.id];
+      } else {
+        state.products[payload.id] = {
+          ...payload,
+          quantityInCart: productInCart?.quantityInCart - 1,
+        };
+      }
     },
+    restore: (state) =>
+      (state = {
+        products: {},
+        totalItems: 0,
+        totalValue: 0,
+      }),
   },
 });
 

@@ -1,9 +1,6 @@
 // vendors
 import { createSlice, type PayloadAction } from "@reduxjs/toolkit";
 
-// constants
-import { STORAGE_KEYS } from "@/constants";
-
 // types
 import { IProduct, IProducts } from "@/types";
 
@@ -18,6 +15,11 @@ export const productsSlice = createSlice({
   reducers: {
     add: (state, { payload }: PayloadAction<IProduct[]>) => {
       state.products = [...payload];
+    },
+    update: (state, { payload }: PayloadAction<IProduct>) => {
+      state.products = state.products.map((product) =>
+        product.id === payload.id ? payload : product
+      );
     },
   },
 });
