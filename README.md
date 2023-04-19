@@ -45,12 +45,15 @@ This dependency is used to persist data, being easy to implement and recommended
 ## Demo Examples
 
 - Android
-[Click to download demo in android](./public/Grability_Store_Test_Android.mp4)
+
+https://user-images.githubusercontent.com/54192654/233150160-1debfe67-3b1a-4a0a-a873-5938f225dc8d.mp4
+
 
 - iOS
-[Click to download demo in ios](./public/Grability_Store_Test_IOS.mp4)
+
+https://user-images.githubusercontent.com/54192654/233151689-5de105d4-a3f8-441b-9f16-1f584fab85ca.mp4
 
 
 ## Download the installable application
 
-- [APK for android devices](./public/Grability_Store.apk)
+- [APK for android devices](https://github.com/Jadace96/Grability-Store/raw/master/public/Grability_Store.apk)
