@@ -5,7 +5,6 @@ import { createSlice, type PayloadAction } from "@reduxjs/toolkit";
 import { STORAGE_KEYS } from "@/constants";
 
 // types
-import { type RootState } from "../../";
 import { ICarState, IProduct } from "@/types";
 
 const initialState: ICarState = {
@@ -29,6 +28,5 @@ export const carSlice = createSlice({
   },
 });
 
-export const carState = (state: RootState) => state.car;
 export const { actions: carActions } = carSlice;
 export default carSlice.reducer;

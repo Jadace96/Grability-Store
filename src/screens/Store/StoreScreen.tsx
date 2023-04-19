@@ -1,5 +1,5 @@
 // vendors
-import { View, Text, FlatList } from "react-native";
+import { ScrollView } from "react-native";
 
 // components
 import { ProductCard } from "@/components";
@@ -11,19 +11,10 @@ export const StoreScreen = () => {
   const { productsState } = useProducts();
 
   return (
-    <View>
-      <FlatList
-        windowSize={1}
-        scrollEnabled={productsState?.products?.length > 0}
-        data={productsState?.products}
-        removeClippedSubviews
-        // style={styles.flatlist}
-        keyExtractor={({ id }) => id.toString()}
-        renderItem={({ item }) => <ProductCard product={item} />}
-        initialNumToRender={20}
-        ListEmptyComponent={<Text>Nothing to show!</Text>}
-        ListFooterComponent={<Text>Footer</Text>}
-      />
-    </View>
+    <ScrollView contentContainerStyle={{ paddingBottom: 40 }}>
+      {productsState.products?.map((product) => (
+        <ProductCard key={product.id} product={product} />
+      ))}
+    </ScrollView>
   );
 };

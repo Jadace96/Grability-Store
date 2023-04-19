@@ -1,12 +1,15 @@
-import { useCallback, useMemo } from "react";
 // vendors
-import { useEffect, useState } from "react";
+import { useEffect, useState, useCallback } from "react";
 
 // services
 import { getProductsService } from "@/services/productsService";
 
+// hooks
+import { useAppDispatch, useAppSelector } from "./useStoreHooks";
+
 // types
 import { IProductsApiResponse, IProduct } from "../types";
+import { productsActions } from "@/store";
 
 interface IProductsState extends IProductsApiResponse {
   isFetching?: boolean;
@@ -14,8 +17,11 @@ interface IProductsState extends IProductsApiResponse {
 }
 
 export const useProducts = () => {
-  const [productsState, setProductsState] = useState<IProductsState>({
-    products: [],
+  const dispatch = useAppDispatch();
+  const storedProducts = useAppSelector(({ products }) => products.products);
+
+  let [productsState, setProductsState] = useState<IProductsState>({
+    products: storedProducts || [],
   });
 
   // const data = {
@@ -42,11 +48,18 @@ export const useProducts = () => {
 
   const getProducts = useCallback(async () => {
     setProductsState({ isFetching: true, products: [] });
+
     const response = (await getProductsService()) as IProductsApiResponse;
-    setProductsState({
-      error: response?.error,
-      products: response?.products || [],
-    });
+
+    if (response?.products) {
+      dispatch(productsActions.add(response.products));
+      setProductsState({
+        products: response?.products || [],
+      });
+    }
+
+    response?.error &&
+      setProductsState({ products: [], error: response?.error });
   }, []);
 
   useEffect(() => {
