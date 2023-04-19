@@ -1,9 +1,6 @@
 // vendors
 import { createSlice, type PayloadAction } from "@reduxjs/toolkit";
 
-// constants
-import { STORAGE_KEYS } from "@/constants";
-
 // types
 import { ICarState, IProduct } from "@/types";
 
@@ -11,8 +8,8 @@ const initialState: ICarState = {
   products: [],
 };
 
-export const carSlice = createSlice({
-  name: STORAGE_KEYS.car,
+export const cartSlice = createSlice({
+  name: "cart",
   // `createSlice` will infer the state type from the `initialState` argument
   initialState,
   reducers: {
@@ -28,5 +25,5 @@ export const carSlice = createSlice({
   },
 });
 
-export const { actions: carActions } = carSlice;
-export default carSlice.reducer;
+export const { actions: cartActions } = cartSlice;
+export default cartSlice.reducer;

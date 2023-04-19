@@ -2,10 +2,10 @@
 import { combineReducers } from "@reduxjs/toolkit";
 
 // reducers
-import carReducer from "./features/car/carSlice";
+import cartReducer from "./features/cart/cartSlice";
 import productsReducer from "./features/products/productsSlice";
 
 export const rootReducers = combineReducers({
-  car: carReducer,
+  cart: cartReducer,
   products: productsReducer,
 });

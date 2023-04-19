@@ -12,7 +12,7 @@ const initialState: IProducts = {
 };
 
 export const productsSlice = createSlice({
-  name: STORAGE_KEYS.products,
+  name: "products",
   // `createSlice` will infer the state type from the `initialState` argument
   initialState,
   reducers: {

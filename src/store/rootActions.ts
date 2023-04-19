@@ -1,2 +1,2 @@
-export { carActions } from "./features/car/carSlice";
+export { cartActions } from "./features/cart/cartSlice";
 export { productsActions } from "./features/products/productsSlice";

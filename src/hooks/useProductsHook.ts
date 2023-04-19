@@ -20,7 +20,7 @@ export const useProducts = () => {
   const dispatch = useAppDispatch();
   const storedProducts = useAppSelector(({ products }) => products.products);
 
-  let [productsState, setProductsState] = useState<IProductsState>({
+  const [productsState, setProductsState] = useState<IProductsState>({
     products: storedProducts || [],
   });
 
