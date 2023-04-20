@@ -1,0 +1,109 @@
+{
+  "products": [
+    {
+      "id": 1,
+      "name": "Arroz DIANA premium x1000g",
+      "unit_price": 2500,
+      "stock": 5,
+      "image": "https://mercaldas.vtexassets.com/arquivos/ids/185522/Arroz-DIANA-premium-bolsa-x1000-g.jpg?v=637033845628370000"
+    },
+    {
+      "id": 2,
+      "name": "Big Papa",
+      "unit_price": 1200,
+      "stock": 15,
+      "image": "https://www.bigpapa.com.co/img/product/IMG-PRODS-1.jpg"
+    },
+    {
+      "id": 3,
+      "name": "Café Aislados",
+      "unit_price": 2500,
+      "stock": 0,
+      "image": "https://previews.123rf.com/images/vivilweb/vivilweb1307/vivilweb130700001/20786885-bolsa-de-pl%C3%A1stico-transparente-de-los-granos-de-caf%C3%A9-aislados-en-el-fondo-blanco.jpg"
+    },
+    {
+      "id": 4,
+      "name": "Fideo Spaghetti DON VITTORIO Bolsa 950g",
+      "unit_price": 2300,
+      "stock": 6,
+      "image": "https://plazavea.vteximg.com.br/arquivos/ids/10051149-450-450/20277768.jpg?v=637859400617670000"
+    },
+    {
+      "id": 5,
+      "name": "Huevos x 30",
+      "unit_price": 500,
+      "stock": 2,
+      "image": "https://d2j6dbq0eux0bg.cloudfront.net/images/28211184/1390987498.jpg"
+    },
+    {
+      "id": 6,
+      "name": "Hershey's - Milk Chocolate",
+      "unit_price": 2500,
+      "stock": 25,
+      "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTdTTUSn89RxM5FHOf9llMcPl0Jy1kjE6LKwg&usqp=CAU"
+    },
+    {
+      "id": 7,
+      "name": "Tosh Chocolate",
+      "unit_price": 1200,
+      "stock": 13,
+      "image": "https://tosh.com.co/wp-content/uploads/2017/03/11-08-Actualizacio%CC%81n-BARRA-TOSH-AVENA-CHOCOLATE-e1670442148904.png"
+    },
+    {
+      "id": 8,
+      "name": "Dutch Cheese",
+      "unit_price": 2500,
+      "stock": 14,
+      "image": "https://alpina.com/media/mageplaza/blog/post/c/o/como-se-come-el-queso-holandes-opciones-deliciosas-para-disfrutarlo.jpg"
+    },
+    {
+      "id": 9,
+      "name": "Strawberry Jam",
+      "unit_price": 2300,
+      "stock": 6,
+      "image": "https://m.media-amazon.com/images/I/81Zq2o++79L._SL1500_.jpg"
+    },
+    {
+      "id": 10,
+      "name": "Unsalted Butter",
+      "unit_price": 500,
+      "stock": 20,
+      "image": "https://images.heb.com/is/image/HEBGrocery/001398985"
+    },
+    {
+      "id": 11,
+      "name": "Baked Beans",
+      "unit_price": 2500,
+      "stock": 5,
+      "image": "https://images.heb.com/is/image/HEBGrocery/000120104-1"
+    },
+    {
+      "id": 12,
+      "name": "Peanut butter",
+      "unit_price": 1200,
+      "stock": 30,
+      "image": "https://cdn.shopify.com/s/files/1/0923/2946/products/851087000014.jpg?v=1570036746"
+    },
+    {
+      "id": 13,
+      "name": "Sausages Range",
+      "unit_price": 2500,
+      "stock": 20,
+      "image": "https://pixel.parall.ax/parallax-agency/image/upload/w_660,h_660,c_fill/expose/cauldron-2018/images/0e54eb2293_2023-03-22-09-35-12_660_660.png"
+    },
+    {
+      "id": 14,
+      "name": "Coffee Caprice Juan Valdez 95g",
+      "unit_price": 10000,
+      "stock": 50,
+      "image": "https://cdn.shopify.com/s/files/1/0115/1752/6097/products/CAFEJUANVALDESAVELLNA_800x.jpg?v=1603515002"
+    },
+    {
+      "id": 15,
+      "name": "Silk Nextmilk",
+      "unit_price": 500,
+      "stock": 2,
+      "image": "https://silk.com/wp-content/uploads/2021/12/silk-whole-fat-nextmilk.png"
+    }
+  ]
+}

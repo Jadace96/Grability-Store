@@ -9,5 +9,5 @@ export const API_ERROR_MESSAGE: TObjKeyString = {
 
 export const ENDPOINTS = {
   PRODUCTS:
-    "https://gist.githubusercontent.com/Jadace96/897d5b1228c49596ca7e5e10da41d12e/raw/596972438719a7a91ea1c8f6badf5d62c370fd13/products.json",
+    "https://gist.github.com/Jadace96/897d5b1228c49596ca7e5e10da41d12e/raw/7cf690f31e053a9a83c2c484aa4816f2ddfc3426/products.json",
 };

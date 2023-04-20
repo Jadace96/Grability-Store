@@ -1,6 +1,6 @@
 // vendors
 import { useMemo, useState } from "react";
-import { ActivityIndicator, View } from "react-native";
+import { ActivityIndicator, ScrollView, View } from "react-native";
 import { Image, ListItem, Button, Text, BottomSheet } from "@rneui/themed";
 
 // hooks
@@ -77,7 +77,7 @@ export const CartScreen = ({ navigation }: TScreenProps) => {
 
   if (totalItems > 0) {
     return (
-      <View>
+      <ScrollView>
         {Object.values(products).map((product) => (
           <ListItem.Swipeable
             topDivider
@@ -138,7 +138,7 @@ export const CartScreen = ({ navigation }: TScreenProps) => {
             </ListItem>
           ))}
         </BottomSheet>
-      </View>
+      </ScrollView>
     );
   }
 
