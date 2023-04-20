@@ -9,5 +9,5 @@ export const API_ERROR_MESSAGE: TObjKeyString = {
 
 export const ENDPOINTS = {
   PRODUCTS:
-    "https://gist.github.com/Jadace96/897d5b1228c49596ca7e5e10da41d12e/raw/7cf690f31e053a9a83c2c484aa4816f2ddfc3426/products.json",
+    "https://raw.githubusercontent.com/Jadace96/Grability-Store/master/public/products.json",
 };
