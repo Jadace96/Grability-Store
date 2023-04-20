@@ -24,6 +24,12 @@
 
 #### yarn android or npm android
 
+### To update products json data
+
+- Go to https://github.com/Jadace96/Grability-Store/blob/master/public/products.json and modify the file.
+- To update it is necessary to make a new commit with the changes.
+- The changes may take a few minutes to be reflected.
+
 ### Third part Libraries and packages
 
 - react-navigation
