@@ -4,14 +4,14 @@
       "id": 1,
       "name": "Arroz DIANA premium x1000g",
       "unit_price": 2500,
-      "stock": 5,
+      "stock": 10,
       "image": "https://mercaldas.vtexassets.com/arquivos/ids/185522/Arroz-DIANA-premium-bolsa-x1000-g.jpg?v=637033845628370000"
     },
     {
       "id": 2,
       "name": "Big Papa",
       "unit_price": 1200,
-      "stock": 15,
+      "stock": 7,
       "image": "https://www.bigpapa.com.co/img/product/IMG-PRODS-1.jpg"
     },
     {
@@ -32,7 +32,7 @@
       "id": 5,
       "name": "Huevos x 30",
       "unit_price": 500,
-      "stock": 2,
+      "stock": 20,
       "image": "https://d2j6dbq0eux0bg.cloudfront.net/images/28211184/1390987498.jpg"
     },
     {
