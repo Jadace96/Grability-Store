@@ -8,21 +8,34 @@
 
 - runs RN project with expo
 
-#### yarn test or npm test
+#### yarn build:android or npm run build:android
+
+- generate an aab to publish in google play store
+
+#### yarn build:android-apk or npm run build:android-apk
+
+- generates an apk to install on android OS
+
+#### yarn build:ios or npm run build:ios
+
+- generates an ipa to install on ios OS
+- you need to have an apple developer account, because in the step-by-step you will be asked for authentication.
+
+#### yarn test or npm run test
 
 - to run all test
 
-#### yarn test:watch or npm test:watch
+#### yarn test:watch or npm run test:watch
 
 - to run all test with watcher option
 
 ### To run on iOS
 
-#### yarn ios or npm ios
+#### yarn ios or npm run ios
 
 ### To run on Android
 
-#### yarn android or npm android
+#### yarn android or npm run android
 
 ### To update products json data
 
